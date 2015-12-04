@@ -1,5 +1,7 @@
 package core;
 
+import javax.swing.JFrame;
+
 public class BalloonMania {
 
 	public static void main(String[] args) {
@@ -11,6 +13,9 @@ public class BalloonMania {
 		Controller controller = new Controller(model, view);
 		
 		view.registerListener(controller);
+		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		view.setSize(400,300);
+		view.setVisible(true);
 		
 	}
 
