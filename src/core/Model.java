@@ -2,26 +2,84 @@ package core;
 
 public class Model {
 	private AntagonistGenerator ag;
-	private int height, period;
+	private int antagHeight, period;
 	private Difficulty difficulty;
+	private Theme theme;
+	
+	private double panelWidth, panelHeight;
+	private double score;
+	private boolean pause;
+	private double volume;
 	public Model(){
-		height = 5;
+		theme = new Theme();
+		setScore(0);
+		setVolume(5);
+		antagHeight = 5;
 		period = 5;
 		difficulty = new Difficulty();
-		ag = new AntagonistGenerator(height, period, difficulty);
+		pause = false;
 		
 	}
 	
-	public int getHeight(){
-		return height;
+	public AntagonistGenerator getAntagGen(){
+		ag = new AntagonistGenerator(antagHeight, period, difficulty, panelWidth, panelHeight);
+		return ag;
+	}
+	public Difficulty getDifficulty(){
+		return difficulty;
+	}
+	public int getAntagonistHeight(){
+		return antagHeight;
 	}
 	public void setHeight(int val){
-		height = val;
+		antagHeight = val;
 	}
 	public int getPeriod(){
 		return period;
 	}
 	public void setPeriod(int val){
 		period = val;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+	public void setSize(int width, int height) {
+		panelWidth = width;
+		panelHeight = height;
+	}
+	public double getPanelWidth(){
+		return panelWidth;
+	}
+	public double getPanelHeight(){
+		return panelHeight;
+	}
+	public void setPause(boolean pause){
+		this.pause = pause;
+	}
+	public boolean getPause() {
+		// TODO Auto-generated method stub
+		return pause;
+	}
+
+	public double getVolume() {
+		return volume;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
+	}
+
+	public Theme getTheme() {
+		return theme;
+	}
+
+	public void setTheme(int themeInt) {
+		theme.changeTheme(themeInt);
 	}
 }

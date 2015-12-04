@@ -4,15 +4,30 @@ import java.awt.Color;
 
 public class Theme {
 	private Color backColor1, backColor2, balloonColor1, enemyColor1, obstacleColor1;
-	
+	private int themeInt;
 	public Theme(){
-		setBackColor1(Color.blue);
+		themeInt = 1;
+		setBackColor1(Color.green);
 		setBackColor2(Color.white);
 		setBalloonColor1(Color.cyan);
 		setEnemyColor1(Color.black);
 		setObstacleColor1(Color.green);
 	}
-
+	public void changeTheme(int themeInt){
+		this.themeInt = themeInt;
+		if(themeInt == 1){
+			setBackColor1(Color.green);
+		}
+		if(themeInt == 2){
+			setBackColor1(Color.red);
+		}
+		if(themeInt == 3){
+			setBackColor1(Color.blue);
+		}
+	}
+	public int getThemeInt(){
+		return themeInt;
+	}
 	public Color getBackColor1() {
 		return backColor1;
 	}

@@ -1,6 +1,7 @@
 package core;
 
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class BalloonMania {
 
@@ -8,15 +9,21 @@ public class BalloonMania {
 		// Test..?
 		//yo yo yo, this is a test for all you suckaaaaaas
 		//yo yo yo, what's up beaches)))))))))((((((((
+		int panelWidth = 500;
+		int panelHeight = 500;
 		Model model = new Model();
 		View view = new View(model);
 		Controller controller = new Controller(model, view);
+		menuController menuController = new menuController(model, view);
+		popupController popupController = new popupController(model, view);
+		view.registerListener(controller, menuController, popupController);
 		
-		view.registerListener(controller);
+		RepaintController repaintController = new RepaintController(model, view);
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		view.setSize(400,300);
+		view.setSize(panelWidth,panelHeight);
 		view.setVisible(true);
 		
+		new Timer(25, repaintController).start();
 	}
 
 }
