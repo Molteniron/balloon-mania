@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -23,6 +24,7 @@ public class View extends JFrame{
 	private JMenu menu;
 	private JPopupMenu popupMenu;
 	private PaintPanel paintPanel;
+	private JLabel background;
 	//used to register menu sliders separately from
 	//registerListener method
 	private menuController menuController;
@@ -55,19 +57,25 @@ public class View extends JFrame{
 		
 		paintPanel = new PaintPanel(model, this);
 		add(paintPanel, BorderLayout.CENTER);
-		Dimension size = paintPanel.getSize();
-		model.setSize(size.width, size.height);
+		
+		background = null;
+		//this.background = new JLabel("", model.getTheme().getImg(), JLabel.CENTER);
+		//paintPanel.add(background, BorderLayout.CENTER);
 		
 		//lets paintpanel listen to keyboard
 		paintPanel.requestFocus();
 		
-		
 	}
-	public void registerListener(Controller controller, menuController controller1, popupController controller2) {
+	public void sizeSetting(){
+		Dimension size = this.getSize();
+		model.setSize(size.width, size.height);
+		
+		System.out.println(this.getSize().toString());
+	}
+	public void registerListener(Controller controller, menuController controller1) {
 		// TODO Auto-generated method stub
 		paintPanel.addKeyListener(controller1);
 		
-		this.addMouseListener(controller2);
 		menuController = controller1;
 		Component [] components = menu.getMenuComponents();
 		for (Component component : components) {
@@ -91,7 +99,23 @@ public class View extends JFrame{
 	public void closeOptions(){
 		options.closeOptions();
 	}
+	//used so Options can add listeners to its stuff.
 	public menuController getMenuController(){
 		return menuController;
+	}
+	
+	public JLabel returnBackground(){
+		return background;
+	}
+	public void setBackground(JLabel background){
+		this.background = background;
+		/*JLabel background1 = new JLabel("", model.getTheme().getImg(), JLabel.CENTER);
+		paintPanel.add(background1);
+		if(background == null){
+			System.out.println(model.getTheme().getThemeInt());
+		}*/
+	}
+	public void removeBackground(JLabel background){
+		remove(background);
 	}
 }

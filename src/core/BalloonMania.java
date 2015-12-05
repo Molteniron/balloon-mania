@@ -9,18 +9,18 @@ public class BalloonMania {
 		// Test..?
 		//yo yo yo, this is a test for all you suckaaaaaas
 		//yo yo yo, what's up beaches)))))))))((((((((
-		int panelWidth = 500;
-		int panelHeight = 500;
+		int panelWidth = 600;
+		int panelHeight = 600;
 		Model model = new Model();
 		View view = new View(model);
 		Controller controller = new Controller(model, view);
 		menuController menuController = new menuController(model, view);
-		popupController popupController = new popupController(model, view);
-		view.registerListener(controller, menuController, popupController);
+		view.registerListener(controller, menuController);
 		
 		RepaintController repaintController = new RepaintController(model, view);
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setSize(panelWidth,panelHeight);
+		view.sizeSetting();
 		view.setVisible(true);
 		
 		new Timer(25, repaintController).start();

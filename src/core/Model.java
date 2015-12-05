@@ -8,7 +8,7 @@ public class Model {
 	
 	private double panelWidth, panelHeight;
 	private double score;
-	private boolean pause;
+	private boolean pause, themeChanged;
 	private double volume;
 	public Model(){
 		theme = new Theme();
@@ -18,7 +18,7 @@ public class Model {
 		period = 5;
 		difficulty = new Difficulty();
 		pause = false;
-		
+		setThemeChanged(false);
 	}
 	
 	public AntagonistGenerator getAntagGen(){
@@ -81,5 +81,13 @@ public class Model {
 
 	public void setTheme(int themeInt) {
 		theme.changeTheme(themeInt);
+	}
+
+	public boolean isThemeChanged() {
+		return themeChanged;
+	}
+
+	public void setThemeChanged(boolean themeChanged) {
+		this.themeChanged = themeChanged;
 	}
 }

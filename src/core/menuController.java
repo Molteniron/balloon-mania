@@ -56,10 +56,13 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 			model.setVolume(source.getValue());
 			System.out.printf("Volume = " );
 		} else if(source.getName() == "Theme"){
-			model.setTheme(source.getValue());
-			System.out.printf("Theme = ");
+			if(model.getTheme().getThemeInt() != source.getValue()){
+				model.setTheme(source.getValue());
+				model.setThemeChanged(true);
+				System.out.printf("Theme = ");
+			}
 		}
-		System.out.printf("%d\n", source.getValue());
+		//System.out.printf("%d\n", source.getValue());
 	}
 	public void windowClosed(WindowEvent e){
 		model.setPause(false);

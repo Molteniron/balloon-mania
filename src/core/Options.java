@@ -48,7 +48,7 @@ public class Options extends JFrame {
 			optionsPanel.add(slider);
 		
 			optionsPanel.add(new JLabel("Theme"));
-			slider = new JSlider(JSlider.HORIZONTAL, 1 ,4, 1);
+			slider = new JSlider(JSlider.HORIZONTAL, 1 ,3, 1);
 			slider.setName("Theme");
 			optionsPanel.add(slider);
 		
@@ -63,7 +63,7 @@ public class Options extends JFrame {
 			JButton closeButton = new JButton("Close Options");
 			optionsPanel.add(closeButton);
 			closeButton.addActionListener(view.getMenuController());
-			this.setLocation(600, 10);
+			this.setLocation( ((int)model.getPanelWidth() + 50), 10);
 			this.setSize(400, 400);
 			firstPaint = false;
 			

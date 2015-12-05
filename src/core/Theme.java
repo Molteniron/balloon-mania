@@ -2,9 +2,15 @@ package core;
 
 import java.awt.Color;
 
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 public class Theme {
 	private Color backColor1, backColor2, balloonColor1, enemyColor1, obstacleColor1;
 	private int themeInt;
+	private ImageIcon img;
 	public Theme(){
 		themeInt = 1;
 		setBackColor1(Color.green);
@@ -12,22 +18,23 @@ public class Theme {
 		setBalloonColor1(Color.cyan);
 		setEnemyColor1(Color.black);
 		setObstacleColor1(Color.green);
+		changeTheme(1);
 	}
 	public void changeTheme(int themeInt){
 		this.themeInt = themeInt;
 		if(themeInt == 1){
-			setBackColor1(Color.green);
+			img = new ImageIcon("16BitSky.jpg");
+		}else if(themeInt == 2){
+			img = new ImageIcon("Cloud.jpg");
+		}else if(themeInt == 3){
+			img = new ImageIcon("MorningSky.jpg");
 		}
-		if(themeInt == 2){
-			setBackColor1(Color.red);
-		}
-		if(themeInt == 3){
-			setBackColor1(Color.blue);
-		}
+		
 	}
 	public int getThemeInt(){
 		return themeInt;
 	}
+	
 	public Color getBackColor1() {
 		return backColor1;
 	}
@@ -67,5 +74,8 @@ public class Theme {
 	public void setObstacleColor1(Color obstacleColor1) {
 		this.obstacleColor1 = obstacleColor1;
 	}
-	
+	public ImageIcon getImg() {
+		return img;
+	}
+		
 }

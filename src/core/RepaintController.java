@@ -3,6 +3,8 @@ package core;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLabel;
+
 public class RepaintController implements ActionListener{
 	private Model model;
 	private View view;
@@ -13,7 +15,7 @@ public class RepaintController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		System.out.println("pause = " + model.getPause());
+		
 		view.repaint();
 		
 	}
