@@ -52,15 +52,14 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 		if(source.getName() == "Difficulty"){
 			model.getDifficulty().setDifficulty(source.getValue());
 			System.out.printf("Difficulty = ");
-		} else if(source.getName() == "Volume"){
-			model.setVolume(source.getValue());
-			System.out.printf("Volume = " );
-		} else if(source.getName() == "Theme"){
-			if(model.getTheme().getThemeInt() != source.getValue()){
+		} else if(source.getName() == "Volume" && model.getVolume() != source.getValue()){
+				view.getMediaPlayer().setVolume(  (double)source.getValue() / 5.0  );
+				model.setVolume(source.getValue());
+				//System.out.printf("Volume = %f", view.getMediaPlayer().getVolume());
+		} else if(source.getName() == "Theme" && model.getTheme().getThemeInt() != source.getValue()){
 				model.setTheme(source.getValue());
 				model.setThemeChanged(true);
-				System.out.printf("Theme = ");
-			}
+				//System.out.printf("Theme = ");
 		}
 		//System.out.printf("%d\n", source.getValue());
 	}

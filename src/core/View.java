@@ -6,7 +6,13 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 
+import javax.sound.sampled.AudioInputStream;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,6 +24,11 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JSlider;
 
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+
 public class View extends JFrame{
 	private Options options;
 	private Model model;
@@ -25,12 +36,15 @@ public class View extends JFrame{
 	private JPopupMenu popupMenu;
 	private PaintPanel paintPanel;
 	private JLabel background;
+	private MediaPlayer mediaPlayer;
 	//used to register menu sliders separately from
 	//registerListener method
 	private menuController menuController;
 	
-	public View(Model model) {
+	public View(Model model)    {
 		this.model = model;
+		//need to initialize JFXPanel like this in order to play music.
+		new JFXPanel();
 		
 		menuController = null;
 		options = new Options(model, this);
@@ -59,9 +73,14 @@ public class View extends JFrame{
 		add(paintPanel, BorderLayout.CENTER);
 		
 		background = null;
-		//this.background = new JLabel("", model.getTheme().getImg(), JLabel.CENTER);
-		//paintPanel.add(background, BorderLayout.CENTER);
 		
+		File file = new File("Underclocked.mp3");
+		Media music = new Media(file.toURI().toString());
+		mediaPlayer = new MediaPlayer(music);
+		mediaPlayer.setStopTime(Duration.seconds(183));
+		mediaPlayer.play();
+		System.out.println(mediaPlayer.getVolume());
+	
 		//lets paintpanel listen to keyboard
 		paintPanel.requestFocus();
 		
@@ -117,5 +136,8 @@ public class View extends JFrame{
 	}
 	public void removeBackground(JLabel background){
 		remove(background);
+	}
+	public MediaPlayer getMediaPlayer(){
+		return mediaPlayer;
 	}
 }

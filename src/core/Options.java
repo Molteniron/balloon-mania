@@ -16,14 +16,16 @@ public class Options extends JFrame {
 	private Difficulty difficulty;
 	private Model model;
 	private View view;
-	private PaintPanel optionsPanel;
+	//private PaintPanel optionsPanel;
+	private JPanel optionsPanel;
 	private boolean firstPaint;
 	public Options(Model model, View view){
 		theme = new Theme();
 		difficulty = new Difficulty();
 		this.model = model;
 		this.view = view;
-		optionsPanel = new PaintPanel(model, view);
+		//optionsPanel = new PaintPanel(model, view);
+		optionsPanel = new JPanel();
 		firstPaint = true;
 
 	}
@@ -43,7 +45,7 @@ public class Options extends JFrame {
 			optionsPanel.add(slider);
 		
 			optionsPanel.add(new JLabel("Volume"));
-			slider = new JSlider(JSlider.HORIZONTAL, 1, 11, 5);
+			slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
 			slider.setName("Volume");
 			optionsPanel.add(slider);
 		
