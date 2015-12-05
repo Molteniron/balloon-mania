@@ -40,7 +40,7 @@ public class Options extends JFrame {
 			optionsPanel.setLayout(new GridLayout(4,1));
 		
 			optionsPanel.add(new JLabel("Difficulty"));
-			JSlider slider = new JSlider(JSlider.HORIZONTAL, 1, 10, 1);
+			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 1);
 			slider.setName("Difficulty");
 			optionsPanel.add(slider);
 		

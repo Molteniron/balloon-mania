@@ -3,11 +3,14 @@ package core;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.io.File;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javafx.scene.media.Media;
@@ -18,7 +21,6 @@ public class PaintPanel extends JPanel{
 	private Model model;
 	private View view;
 	private boolean firstPrint;
-	private MediaPlayer mediaPlayer;
 	public PaintPanel(Model model, View view){
 		this.model = model;
 		this.view = view;
@@ -29,10 +31,17 @@ public class PaintPanel extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		if(firstPrint == true){
+			System.out.println("first print");
 			JLabel background = new JLabel();
 			background.setName("background");
 			background.setIcon(model.getTheme().getImg());
-			this.add(background, BorderLayout.NORTH);
+			this.add(background, BorderLayout.SOUTH);
+			//JFrame frame = new JFrame();
+			//frame.setLocation(100, 100);
+			//this.add(frame, BorderLayout.CENTER);
+			
+			JOptionPane optionPane= new JOptionPane("This is an optionPane");
+			this.add(optionPane);
 			firstPrint = false;
 		} else{
 			if(model.isThemeChanged() == true){
@@ -44,12 +53,12 @@ public class PaintPanel extends JPanel{
 						JLabel background = new JLabel();
 						background.setName("background");
 						background.setIcon(model.getTheme().getImg());
-						this.add(background, BorderLayout.NORTH);
+						this.add(background, BorderLayout.SOUTH);
 						model.setThemeChanged(false);
 					}	
 				} 
 			}//end background code
-			if(view.getMediaPlayer().getCurrentTime().equals(Duration.millis(5000.0)) ){
+			if(view.getMediaPlayer().getCurrentTime().equals(Duration.millis(183000.0)) ){
 				System.out.println("trying to replay");
 				view.getMediaPlayer().seek(Duration.ZERO);
 			}

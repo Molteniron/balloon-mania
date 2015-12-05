@@ -18,7 +18,7 @@ public class Model {
 		period = 5;
 		difficulty = new Difficulty();
 		pause = false;
-		setThemeChanged(false);
+		setThemeChanged(true);
 	}
 	
 	public AntagonistGenerator getAntagGen(){

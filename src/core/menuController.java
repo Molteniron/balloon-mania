@@ -53,7 +53,7 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 			model.getDifficulty().setDifficulty(source.getValue());
 			System.out.printf("Difficulty = ");
 		} else if(source.getName() == "Volume" && model.getVolume() != source.getValue()){
-				view.getMediaPlayer().setVolume(  (double)source.getValue() / 5.0  );
+				view.getMediaPlayer().setVolume(  (double)source.getValue() / 10.0  );
 				model.setVolume(source.getValue());
 				//System.out.printf("Volume = %f", view.getMediaPlayer().getVolume());
 		} else if(source.getName() == "Theme" && model.getTheme().getThemeInt() != source.getValue()){
@@ -65,6 +65,7 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 	}
 	public void windowClosed(WindowEvent e){
 		model.setPause(false);
+		
 	}
 
 	@Override

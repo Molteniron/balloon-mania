@@ -20,9 +20,11 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JSlider;
+import javax.swing.JTextArea;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
@@ -78,8 +80,12 @@ public class View extends JFrame{
 		Media music = new Media(file.toURI().toString());
 		mediaPlayer = new MediaPlayer(music);
 		mediaPlayer.setStopTime(Duration.seconds(183));
+		mediaPlayer.setVolume(.5);
 		mediaPlayer.play();
-		System.out.println(mediaPlayer.getVolume());
+		
+
+		
+		
 	
 		//lets paintpanel listen to keyboard
 		paintPanel.requestFocus();
@@ -89,7 +95,7 @@ public class View extends JFrame{
 		Dimension size = this.getSize();
 		model.setSize(size.width, size.height);
 		
-		System.out.println(this.getSize().toString());
+		//System.out.println(this.getSize().toString());
 	}
 	public void registerListener(Controller controller, menuController controller1) {
 		// TODO Auto-generated method stub
@@ -126,17 +132,7 @@ public class View extends JFrame{
 	public JLabel returnBackground(){
 		return background;
 	}
-	public void setBackground(JLabel background){
-		this.background = background;
-		/*JLabel background1 = new JLabel("", model.getTheme().getImg(), JLabel.CENTER);
-		paintPanel.add(background1);
-		if(background == null){
-			System.out.println(model.getTheme().getThemeInt());
-		}*/
-	}
-	public void removeBackground(JLabel background){
-		remove(background);
-	}
+	
 	public MediaPlayer getMediaPlayer(){
 		return mediaPlayer;
 	}
