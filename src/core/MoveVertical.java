@@ -7,5 +7,6 @@ public interface MoveVertical {
 	 * @return coordinate after raise
 	 */
 	public double raise(double val);
+	public void move();
 
 }

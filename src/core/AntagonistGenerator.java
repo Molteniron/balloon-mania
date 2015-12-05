@@ -5,33 +5,51 @@ import java.util.Random;
 
 public class AntagonistGenerator {
 	private ArrayList<Antagonist> antagonists;
-	private int maxHeight, minWindow, enemyProximity, enemyPeriod;
+	private double maxHeight, minWindow;
 	private Difficulty difficulty;
-	private Random random;
+	private Random rand;
 	private double panelWidth, panelHeight;
+	private double antagonistWidth;
 	
-	public AntagonistGenerator(int height, int period, Difficulty difficulty, double panelWidth, double panelHeight){
-		this.maxHeight = height;
-		this.enemyPeriod = period;
+	public AntagonistGenerator(Difficulty difficulty, double panelWidth, double panelHeight){
 		this.difficulty = difficulty;
-		Random random = new Random();
+		this.panelWidth = panelWidth;
+		this.panelHeight = panelHeight;
+		minWindow = panelHeight / 4;
+		maxHeight = panelHeight - minWindow;
+		antagonistWidth = panelHeight / 12;
+		rand = new Random();
 	}
 	public ArrayList<Antagonist> getAntList(){
 		return antagonists;
 	}
 	
-	public Antagonist generateAntagonist(){
-		double xpos = panelWidth + 50; //set to just off screen
-		double speed = difficulty.getDifficultyNum();
-		Antagonist antagonist = new Antagonist(speed, xpos);
+	/**
+	 * generate an Antagonist and add it to the Arraylist.
+	 * Antagonists will be randomly selected as Enemy or Obstacle 
+	 * based on Difficulty (0-10). Difficulty also determines Antagonist
+	 * speed.
+	 */
+	public void generateAntagonist(){
+		double xPos = panelWidth + 50; //set to just off screen
+		double diff = difficulty.getDifficultyNum();
+		Antagonist antagonist;
+		if (rand.nextInt(100) < diff*10) {
+			antagonist = new Enemy(diff, xPos, rand.nextDouble()*panelHeight, antagonistWidth, panelHeight / 4);
+		} else {
+			double h, yPos;
+			do {
+				h = rand.nextDouble() * maxHeight;
+				yPos = rand.nextDouble() * panelHeight;
+				yPos -= Math.min(h, yPos);
+			}
+			while (yPos < minWindow || panelHeight - (h + yPos) < minWindow);
+			antagonist = new Obstacle(diff, xPos, yPos, antagonistWidth, h);
+		}
 		antagonists.add(antagonist);
-		return antagonist;
 	}
 	
-	public void setEnemyProximity(int val){
-		
-	}
-	
+	/*
 	public Obstacle generateObstacle(){
 		double xpos = panelWidth + 50; //set to just off screen
 		double ypos = random.nextDouble() * panelHeight;
@@ -52,4 +70,5 @@ public class AntagonistGenerator {
 		Enemy enemy = new Enemy(speed, xSpawn, radius, ySpawn, yRadius);
 		return enemy;
 	}
+	*/
 }
