@@ -4,43 +4,28 @@ public class Enemy extends Antagonist implements MoveVertical{
 	private double horizontalSpeed;
 	private double xPos;
 	private double yPos;
-	private double ySpawn;
 	private double xSpawn;
-	private double radius;
-	private double yRadius;
+	private double ySpawn;
+	private double moveRadius;
 	
-	public Enemy(double horizontalSpeed, double xSpawn, double radius, double ySpawn, double yRadius){
-		super(horizontalSpeed, xSpawn);
-		this.radius = radius;
+	public Enemy(double horizontalSpeed, double xSpawn, double ySpawn, double width, double moveRadius){
+		super(horizontalSpeed, xSpawn, ySpawn, width);
 		this.ySpawn = ySpawn;
 		this.xSpawn = xSpawn;
-		this.yPos = ySpawn;
-		this.yRadius = yRadius;
+		this.moveRadius = moveRadius;
 	}
 	
 	/**
 	 * move in sin wave to the left
 	 */
 	public void move(){
-		raise(Math.atan(Math.tan(yPos-ySpawn/xPos-xSpawn))*horizontalSpeed*yRadius);
+		raise(Math.atan(Math.tan(yPos-ySpawn/xPos-xSpawn))*horizontalSpeed*moveRadius);
 		slide(horizontalSpeed);
 	}
 	
 	public double raise(double val){
 		yPos += val;
 		return yPos;
-	}
-	
-	public double getXPos(){
-		return xPos;
-	}
-	
-	public double getYPos(){
-		return yPos;
-	}
-	
-	public double getRadius(){
-		return radius;
 	}
 	
 

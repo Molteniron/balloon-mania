@@ -7,4 +7,5 @@ public interface MoveHorizontal {
  * @return destination coordinate
  */
 	public double slide(double val);
+	public void move();
 }
