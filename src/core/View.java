@@ -17,6 +17,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -39,21 +40,30 @@ public class View extends JFrame{
 	private PaintPanel paintPanel;
 	private JLabel background;
 	private MediaPlayer mediaPlayer;
-	private AntagonistPainter agPainter;
+	private PaintAntagonists paintAg;
 	//used to register menu sliders separately from
 	//registerListener method
 	private menuController menuController;
+	private JLayeredPane layer;
 	
 	public View(Model model)    {
 		this.model = model;
 		//need to initialize JFXPanel like this in order to play music.
 		new JFXPanel();
-		
+		JFrame f = new JFrame();
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setSize(900, 900);
 		menuController = null;
 		options = new Options(model, this);
+		//PaintView paintView = new PaintView(model, this);
+		//add(paintView);
+		JLayeredPane layer = new JLayeredPane();
+		//add(layer);
+		//paintView.add(layer);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
+		//layer.add(menuBar, 1);
 		menu = new JMenu("Menu");
 		menuBar.add(menu);
 		
@@ -71,12 +81,23 @@ public class View extends JFrame{
 		popupMenu.add(new JMenuItem("Options"));
 
 		popupMenu.add(new JMenuItem("Quit"));
+		
+		paintAg = new PaintAntagonists(model, this);
+		add(paintAg);
+		//paintView.add(paintAg, BorderLayout.CENTER);
+		//layer.setLayer(paintAg, new Integer(0) );
+		//layer.add(paintAg, 0);
 		paintPanel = new PaintPanel(model, this);
-		add(paintPanel, BorderLayout.CENTER);
+		add(paintPanel);
+		//paintView.add(paintPanel, BorderLayout.CENTER);
+		//layer.setLayer(paintPanel, new Integer(1) );
+		//layer.add(paintPanel, 0);
+
+	//	add(paintAg);
+		this.add(layer, BorderLayout.CENTER);
 		this.setContentPane(paintPanel);
-		//agPainter = new AntagonistPainter(model, this);
-		//add(agPainter, BorderLayout.CENTER);
 		background = null;
+
 		
 		File file = new File("Underclocked.mp3");
 		Media music = new Media(file.toURI().toString());
@@ -85,14 +106,15 @@ public class View extends JFrame{
 		mediaPlayer.setVolume(.5);
 		mediaPlayer.play();
 		
-
+		
 		
 		
 	
 		//lets paintpanel listen to keyboard
-		paintPanel.requestFocus();
+		//paintPanel.requestFocus();
 		
 	}
+
 	public void sizeSetting(){
 		Dimension size = this.getSize();
 		model.setSize(size.width, size.height);
@@ -138,4 +160,16 @@ public class View extends JFrame{
 	public MediaPlayer getMediaPlayer(){
 		return mediaPlayer;
 	}
+	public JLayeredPane getLayer() {
+		return layer;
+	}
+	public PaintAntagonists getPaintAg(){
+		return paintAg;
+	}
+	public PaintPanel getPaintPanel(){
+		return paintPanel;
+	}
+	/*public void setLayer(JLayeredPane layer) {
+		this.layer = layer;
+	}*/
 }

@@ -11,8 +11,8 @@ public class BalloonMania {
 		// Test..?
 		//yo yo yo, this is a test for all you suckaaaaaas
 		//yo yo yo, what's up beaches)))))))))((((((((
-		int panelWidth = 800;
-		int panelHeight = 600;
+		int panelWidth = 1200;
+		int panelHeight = 900;
 		Model model = new Model();
 		View view = new View(model);
 		Controller controller = new Controller(model, view);

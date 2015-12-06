@@ -15,8 +15,10 @@ public class RepaintController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		model.getAntagGen().moveAntagonists();
-		view.repaint();
+		if(model.getPause() != true){
+			model.getAntagGen().moveAntagonists();
+			view.repaint();
+		}
 		
 	}
 
