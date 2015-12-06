@@ -39,6 +39,7 @@ public class View extends JFrame{
 	private PaintPanel paintPanel;
 	private JLabel background;
 	private MediaPlayer mediaPlayer;
+	private AntagonistPainter agPainter;
 	//used to register menu sliders separately from
 	//registerListener method
 	private menuController menuController;
@@ -70,10 +71,11 @@ public class View extends JFrame{
 		popupMenu.add(new JMenuItem("Options"));
 
 		popupMenu.add(new JMenuItem("Quit"));
-		
 		paintPanel = new PaintPanel(model, this);
 		add(paintPanel, BorderLayout.CENTER);
-		
+		this.setContentPane(paintPanel);
+		//agPainter = new AntagonistPainter(model, this);
+		//add(agPainter, BorderLayout.CENTER);
 		background = null;
 		
 		File file = new File("Underclocked.mp3");

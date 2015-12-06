@@ -22,7 +22,6 @@ public class Model {
 	}
 	
 	public AntagonistGenerator getAntagGen(){
-		ag = new AntagonistGenerator(antagHeight, period, difficulty, panelWidth, panelHeight);
 		return ag;
 	}
 	public Difficulty getDifficulty(){
@@ -52,6 +51,7 @@ public class Model {
 	public void setSize(int width, int height) {
 		panelWidth = width;
 		panelHeight = height;
+		ag = new AntagonistGenerator( difficulty, panelWidth, panelHeight);
 	}
 	public double getPanelWidth(){
 		return panelWidth;

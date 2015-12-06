@@ -12,6 +12,7 @@ public class AntagonistGenerator {
 	private double antagonistWidth;
 	
 	public AntagonistGenerator(Difficulty difficulty, double panelWidth, double panelHeight){
+		antagonists = new ArrayList<Antagonist>();
 		this.difficulty = difficulty;
 		this.panelWidth = panelWidth;
 		this.panelHeight = panelHeight;
@@ -33,20 +34,28 @@ public class AntagonistGenerator {
 	public void generateAntagonist(){
 		double xPos = panelWidth + 50; //set to just off screen
 		double diff = difficulty.getDifficultyNum();
+		double h, yPos;
 		Antagonist antagonist;
 		if (rand.nextInt(100) < diff*10) {
-			antagonist = new Enemy(diff, xPos, rand.nextDouble()*panelHeight, antagonistWidth, panelHeight / 4);
+			antagonist = new Enemy(0 - diff - 1, xPos, rand.nextDouble()*panelHeight, antagonistWidth, panelHeight / 4);
 		} else {
-			double h, yPos;
 			do {
 				h = rand.nextDouble() * maxHeight;
 				yPos = rand.nextDouble() * panelHeight;
 				yPos -= Math.min(h, yPos);
 			}
 			while (yPos < minWindow || panelHeight - (h + yPos) < minWindow);
-			antagonist = new Obstacle(diff, xPos, yPos, antagonistWidth, h);
+			antagonist = new Obstacle(0 - diff - 1, xPos, yPos, antagonistWidth, h);
 		}
 		antagonists.add(antagonist);
+	}
+	
+	public void moveAntagonists() {
+		int i;
+		for (i = 0; i < antagonists.size(); i++) {
+			antagonists.get(i).move();
+		}
+		
 	}
 	
 	/*

@@ -65,19 +65,20 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 	}
 	public void windowClosed(WindowEvent e){
 		model.setPause(false);
-		
+		System.out.println("closed");
 	}
 
 	@Override
 	public void windowActivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Window Clicked");
 	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		model.setPause(false);
+		System.out.println("closing");
 	}
 
 	@Override

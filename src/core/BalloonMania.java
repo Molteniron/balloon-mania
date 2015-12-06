@@ -11,8 +11,8 @@ public class BalloonMania {
 		// Test..?
 		//yo yo yo, this is a test for all you suckaaaaaas
 		//yo yo yo, what's up beaches)))))))))((((((((
-		int panelWidth = 1200;
-		int panelHeight = 1100;
+		int panelWidth = 800;
+		int panelHeight = 600;
 		Model model = new Model();
 		View view = new View(model);
 		Controller controller = new Controller(model, view);
@@ -25,7 +25,11 @@ public class BalloonMania {
 		view.sizeSetting();
 		view.setVisible(true);
 		
+		AntagonistController antagonistController = new AntagonistController(model, view);
+		new Timer(3000, antagonistController).start();
+		
 		new Timer(25, repaintController).start();
+		
 	}
 
 }

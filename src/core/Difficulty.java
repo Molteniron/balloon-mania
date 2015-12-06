@@ -4,7 +4,7 @@ public class Difficulty {
 	private double difficultyNum;
 	
 	public Difficulty(){
-		difficultyNum = 1;
+		difficultyNum = 0;
 	}
 	
 	public void setDifficulty(int newDifficulty){

@@ -30,6 +30,11 @@ public class PaintPanel extends JPanel{
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		//System.out.println(model.getPause());
+		for (Antagonist a : model.getAntagGen().getAntList()) {
+			g.drawRect((int) a.getXPos() - 100, (int) a.getYPos() - 100, (int) a.getWidth(), (int) a.getHeight());
+			System.out.println("Drawing an Antagonist at " + (a.getXPos() - 100) + ", " + (a.getYPos() - 100));
+		}
 		if(firstPrint == true){
 			System.out.println("first print");
 			JLabel background = new JLabel();
@@ -40,8 +45,8 @@ public class PaintPanel extends JPanel{
 			//frame.setLocation(100, 100);
 			//this.add(frame, BorderLayout.CENTER);
 			
-			JOptionPane optionPane= new JOptionPane("This is an optionPane");
-			this.add(optionPane);
+			//JOptionPane optionPane= new JOptionPane("This is an optionPane");
+			//this.add(optionPane);
 			firstPrint = false;
 		} else{
 			if(model.isThemeChanged() == true){

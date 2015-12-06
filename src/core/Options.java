@@ -61,13 +61,14 @@ public class Options extends JFrame {
 					slide.addChangeListener(view.getMenuController());
 				}
 			}
-		
+			
 			JButton closeButton = new JButton("Close Options");
 			optionsPanel.add(closeButton);
 			closeButton.addActionListener(view.getMenuController());
 			this.setLocation( ((int)model.getPanelWidth() + 50), 10);
 			this.setSize(400, 400);
 			firstPaint = false;
+			this.addWindowListener(view.getMenuController());
 			
 		}
 		this.setVisible(true);
