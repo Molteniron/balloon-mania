@@ -34,8 +34,10 @@ public class PaintPanel extends JPanel{
 		super.paintComponent(g);
 		System.out.println("paintPanel");
 		g.drawImage(model.getTheme().getImage(), 0, 0, null);
-		
+	
 		if(firstPrint == true){
+			firstPrint = false;
+			view.drawDiffPop();
 			/*
 			System.out.println("first print");
 			JLabel background = new JLabel();
@@ -43,7 +45,7 @@ public class PaintPanel extends JPanel{
 			background.setIcon(model.getTheme().getImg());
 			this.add(background, BorderLayout.SOUTH);
 			*/
-			firstPrint = false;
+			
 		} else{
 			if(model.isThemeChanged() == true){
 				/*Component [] components = this.getComponents();

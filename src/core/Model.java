@@ -17,7 +17,7 @@ public class Model {
 		antagHeight = 5;
 		period = 5;
 		difficulty = new Difficulty();
-		pause = false;
+		pause = true;
 		setThemeChanged(true);
 	}
 	

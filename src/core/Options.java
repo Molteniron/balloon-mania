@@ -21,9 +21,9 @@ public class Options extends JFrame {
 	private boolean firstPaint;
 	public Options(Model model, View view){
 		theme = new Theme();
-		difficulty = new Difficulty();
 		this.model = model;
 		this.view = view;
+		difficulty = model.getDifficulty();
 		//optionsPanel = new PaintPanel(model, view);
 		optionsPanel = new JPanel();
 		firstPaint = true;
@@ -37,15 +37,15 @@ public class Options extends JFrame {
 			add(optionsPanel);
 			optionsPanel.setBackground(Color.white);
 			optionsPanel.requestFocus();
-			optionsPanel.setLayout(new GridLayout(4,1));
+			optionsPanel.setLayout(new GridLayout(3,1));
 		
-			optionsPanel.add(new JLabel("Difficulty"));
-			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 1);
+			/*optionsPanel.add(new JLabel("Difficulty"));
+			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 1);
 			slider.setName("Difficulty");
-			optionsPanel.add(slider);
+			optionsPanel.add(slider);*/
 		
 			optionsPanel.add(new JLabel("Volume"));
-			slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
+			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
 			slider.setName("Volume");
 			optionsPanel.add(slider);
 		
@@ -58,7 +58,8 @@ public class Options extends JFrame {
 			for (Component component : components) {
 				if( component instanceof JSlider ) {
 					JSlider slide = (JSlider) component;
-					slide.addChangeListener(view.getMenuController());
+					view.setMenuController(slide);
+					//slide.addChangeListener(view.getMenuController());
 				}
 			}
 			

@@ -45,6 +45,10 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 		} else if(command.equals("Close Options")){
 			view.closeOptions();
 			model.setPause(false);
+		} else if(command.equals("Play")){
+			model.setPause(false);
+			view.closeDiffPop();
+			
 		}
 	}
 	public void stateChanged(ChangeEvent e){
@@ -55,13 +59,13 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 		} else if(source.getName() == "Volume" && model.getVolume() != source.getValue()){
 				view.getMediaPlayer().setVolume(  (double)source.getValue() / 10.0  );
 				model.setVolume(source.getValue());
-				//System.out.printf("Volume = %f", view.getMediaPlayer().getVolume());
+				System.out.printf("Volume = %f", view.getMediaPlayer().getVolume());
 		} else if(source.getName() == "Theme" && model.getTheme().getThemeInt() != source.getValue()){
 				model.setTheme(source.getValue());
 				model.setThemeChanged(true);
 				//System.out.printf("Theme = ");
 		}
-		//System.out.printf("%d\n", source.getValue());
+		System.out.printf("%d\n", source.getValue());
 	}
 	public void windowClosed(WindowEvent e){
 		model.setPause(false);

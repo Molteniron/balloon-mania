@@ -3,6 +3,7 @@ package core;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -15,6 +16,7 @@ import java.net.MalformedURLException;
 import javax.sound.sampled.AudioInputStream;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -45,6 +47,7 @@ public class View extends JFrame{
 	//registerListener method
 	private menuController menuController;
 	private JLayeredPane layer;
+	private DifficultyPopUp diffPop;
 	
 	public View(Model model)    {
 		this.model = model;
@@ -54,10 +57,14 @@ public class View extends JFrame{
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(900, 900);
 		menuController = null;
+		
+
+		
 		options = new Options(model, this);
+		
 		//PaintView paintView = new PaintView(model, this);
 		//add(paintView);
-		JLayeredPane layer = new JLayeredPane();
+		//JLayeredPane layer = new JLayeredPane();
 		//add(layer);
 		//paintView.add(layer);
 		
@@ -89,12 +96,14 @@ public class View extends JFrame{
 		//layer.add(paintAg, 0);
 		paintPanel = new PaintPanel(model, this);
 		add(paintPanel);
+		
+
 		//paintView.add(paintPanel, BorderLayout.CENTER);
 		//layer.setLayer(paintPanel, new Integer(1) );
 		//layer.add(paintPanel, 0);
 
 	//	add(paintAg);
-		this.add(layer, BorderLayout.CENTER);
+		//this.add(layer, BorderLayout.CENTER);
 		this.setContentPane(paintPanel);
 		background = null;
 
@@ -107,9 +116,12 @@ public class View extends JFrame{
 		mediaPlayer.play();
 		
 		
+		diffPop = new DifficultyPopUp(model, this);
+		//diffPop.setVisible(true);
 		
-		
-	
+		//JDialog dialog = new JDialog(this, "Dialog",Dialog.ModalityType.APPLICATION_MODAL);
+		//dialog.setSize(200, 200);
+		//dialog.setVisible(true);
 		//lets paintpanel listen to keyboard
 		//paintPanel.requestFocus();
 		
@@ -141,16 +153,25 @@ public class View extends JFrame{
 			}
 		}
 	}
-	
+	public void drawDiffPop(){
+		diffPop.drawDiffPop();
+	}
+	public void closeDiffPop(){
+		diffPop.closeDiffPop();
+	}
 	public void drawOptions(){
 		options.drawOptions();
 	}
 	public void closeOptions(){
 		options.closeOptions();
 	}
-	//used so Options can add listeners to its stuff.
+	//this is a baaaaaad method man.
 	public menuController getMenuController(){
 		return menuController;
+	}
+	
+	public void setMenuController(JSlider slider){
+		slider.addChangeListener(menuController);
 	}
 	
 	public JLabel returnBackground(){
