@@ -8,7 +8,7 @@ public class Model {
 	
 	private double panelWidth, panelHeight;
 	private double score;
-	private boolean pause, themeChanged;
+	private boolean pause, themeChanged, gameOver;
 	private double volume;
 	private Balloon balloon;
 	public Model(){
@@ -21,6 +21,7 @@ public class Model {
 		pause = true;
 		setBalloon(new Balloon());
 		setThemeChanged(true);
+		setGameOver(false);
 	}
 	
 	public AntagonistGenerator getAntagGen(){
@@ -99,5 +100,13 @@ public class Model {
 
 	public void setBalloon(Balloon balloon) {
 		this.balloon = balloon;
+	}
+
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
 	}
 }
