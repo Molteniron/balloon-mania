@@ -16,36 +16,41 @@ public class DifficultyPopUp extends JFrame{
 	private Model model;
 	private View view;
 	private boolean firstPaint;
+	private JPanel popPanel;
 	private JDialog dialog;
 	
 	public DifficultyPopUp(Model model, View view) {
 		this.model = model;
 		this.view = view;
+		popPanel = new JPanel();
 		firstPaint = true;
-
+		
 	}
 	public void setUp(){
 		dialog = new JDialog(this, "Start Settings", Dialog.ModalityType.APPLICATION_MODAL);
 		
 		dialog.setBackground(Color.black);
-		dialog.setLayout(new GridLayout(8,1));
+		dialog.setLayout(new GridLayout(7,1));
 		
-		dialog.add(new JLabel("Diffuclty"));
-		JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 0);
+		dialog.add(new JLabel("Difficulty"));
+		JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 1);
 		slider.setName("Difficulty");
 		dialog.add(slider);
+		//slider.addChangeListener(view.getMenuController());
 		view.setMenuController(slider);
 		
 		dialog.add(new JLabel("Volume"));
 		slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
 		slider.setName("Volume");
 		dialog.add(slider);	
+		//slider.addChangeListener(view.getMenuController());
 		view.setMenuController(slider);
 		
 		dialog.add(new JLabel("Theme"));
 		slider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
 		slider.setName("Theme");
 		dialog.add(slider);
+		//slider.addChangeListener(view.getMenuController());
 		view.setMenuController(slider);
 		
 		JButton playButton = new JButton("Play");
@@ -55,6 +60,7 @@ public class DifficultyPopUp extends JFrame{
 		dialog.addWindowListener(view.getMenuController()); 
 
 	}
+
 	public void drawDiffPop(){
 		if(firstPaint == true){
 			setUp();
@@ -68,5 +74,6 @@ public class DifficultyPopUp extends JFrame{
 	public void closeDiffPop(){
 		this.setVisible(false);
 	}
+
 
 }
