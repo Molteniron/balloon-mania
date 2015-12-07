@@ -50,7 +50,7 @@ public class Difficulty {
 		switch (difficultyNum){
 		case 0: freq = 0;
 		break;
-		case 1: freq = 1;
+		case 1: freq = .1;
 		break;
 		case 2: freq = .2;
 		break;

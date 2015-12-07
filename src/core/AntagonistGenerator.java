@@ -16,7 +16,7 @@ public class AntagonistGenerator {
 		this.difficulty = difficulty;
 		this.panelWidth = panelWidth;
 		this.panelHeight = panelHeight;
-		minWindow = panelHeight / 4;
+		minWindow = panelHeight / 3;
 		maxHeight = panelHeight - minWindow;
 		antagonistWidth = panelHeight / 12;
 		rand = new Random();
@@ -37,7 +37,7 @@ public class AntagonistGenerator {
 		double h, yPos;
 		Antagonist antagonist;
 		if (rand.nextDouble() < freq) {
-			antagonist = new Enemy(speed, xPos, rand.nextDouble()*panelHeight, antagonistWidth, panelHeight / 4);
+			antagonist = new Enemy(speed, xPos, rand.nextDouble()*(maxHeight + minWindow) - minWindow / 2, antagonistWidth, panelHeight / 5);
 		} else {
 			do {
 				h = rand.nextDouble() * maxHeight;
