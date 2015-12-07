@@ -6,8 +6,8 @@ import javax.swing.Timer;
 public class BalloonMania {
 
 	public static void main(String[] args)   {
-		int panelWidth = 1200;
-		int panelHeight = 900;
+		int panelWidth = 960;
+		int panelHeight = 540;
 		Model model = new Model();
 		View view = new View(model);
 		Controller controller = new Controller(model, view);

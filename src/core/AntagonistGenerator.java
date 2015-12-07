@@ -40,11 +40,12 @@ public class AntagonistGenerator {
 			antagonist = new Enemy(speed, xPos, rand.nextDouble()*(maxHeight + minWindow) - minWindow / 2, antagonistWidth, panelHeight / 5);
 		} else {
 			do {
-				h = rand.nextDouble() * maxHeight;
+				h = rand.nextDouble() * (maxHeight - panelHeight / 4) + panelHeight / 4;
 				yPos = rand.nextDouble() * panelHeight;
-				yPos -= Math.min(h, yPos);
+				//yPos -= Math.min(h, yPos);
+				//yPos -= h / 2;
 			}
-			while (yPos < minWindow || panelHeight - (h + yPos) < minWindow);
+			while ((yPos < minWindow && (panelHeight - (h + yPos)) < minWindow) || (yPos + h) > panelHeight);
 			antagonist = new Obstacle(speed, xPos, yPos, antagonistWidth, h);
 		}
 		antagonists.add(antagonist);
