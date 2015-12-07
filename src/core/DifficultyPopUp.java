@@ -36,7 +36,7 @@ public class DifficultyPopUp extends JFrame{
 			dialog.setLayout(new GridLayout(7,1));
 			
 			dialog.add(new JLabel("Diffuclty"));
-			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 0);
+			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 1);
 			slider.setName("Difficulty");
 			dialog.add(slider);
 			//slider.addChangeListener(view.getMenuController());

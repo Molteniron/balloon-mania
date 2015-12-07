@@ -12,7 +12,7 @@ public class Theme {
 	private Color backColor1, backColor2, balloonColor1, enemyColor1, obstacleColor1;
 	private int themeInt;
 	private ImageIcon img;
-	private BufferedImage Sky, Cloud, MorningSky, currentImage;
+	private BufferedImage Sky, Cloud, MorningSky, greenBalloon, currentImage, currBalloon;
 	public Theme(){
 		themeInt = 1;
 		setBackColor1(Color.green);
@@ -24,6 +24,7 @@ public class Theme {
 			Sky = ImageIO.read(new File("16BitSky.jpg"));
 			Cloud = ImageIO.read(new File("Cloud.jpg"));
 			MorningSky = ImageIO.read(new File("MorningSky.jpg"));
+			greenBalloon = ImageIO.read(new File("greenBalloon.jpg"));
 		}catch (IOException e){ }
 		changeTheme(1);
 	}
@@ -33,6 +34,7 @@ public class Theme {
 		if(themeInt == 1){
 			img = new ImageIcon("16BitSky.jpg");
 			currentImage = Sky;
+			currBalloon = greenBalloon;
 			//imageName = "16BitSky.jpg";
 		}else if(themeInt == 2){
 			img = new ImageIcon("Cloud.jpg");
@@ -96,6 +98,9 @@ public class Theme {
 	}
 	public BufferedImage getImage(){
 		return currentImage;
+	}
+	public BufferedImage getBalloonImg(){
+		return currBalloon;
 	}
 		
 }

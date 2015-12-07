@@ -34,7 +34,7 @@ public class PaintPanel extends JPanel{
 		super.paintComponent(g);
 		System.out.println("paintPanel");
 		g.drawImage(model.getTheme().getImage(), 0, 0, null);
-	
+		g.drawImage(model.getTheme().getBalloonImg(), 100, 100, null);
 		if(firstPrint == true){
 			firstPrint = false;
 			view.drawDiffPop();
