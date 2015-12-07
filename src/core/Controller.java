@@ -38,7 +38,8 @@ public class Controller implements KeyListener, ActionListener{
 			model.getBalloon().move();
 		if(arg0.getKeyChar() == 'q')
 			model.setGameOver(true);
-			
+		if(arg0.getKeyChar() == 'p')
+			model.setPause(!model.getPause());
 	}
 
 	@Override

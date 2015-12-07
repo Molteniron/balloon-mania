@@ -30,7 +30,7 @@ public class DifficultyPopUp extends JFrame{
 		dialog = new JDialog(this, "Start Settings", Dialog.ModalityType.APPLICATION_MODAL);
 		
 		dialog.setBackground(Color.black);
-		dialog.setLayout(new GridLayout(7,1));
+		dialog.setLayout(new GridLayout(8,1));
 		
 		dialog.add(new JLabel("Difficulty"));
 		JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 1);
@@ -57,6 +57,9 @@ public class DifficultyPopUp extends JFrame{
 		dialog.add(playButton);
 		playButton.addActionListener(view.getMenuController());
 		
+		JButton quitButton = new JButton("Quit");
+		dialog.add(quitButton);
+		quitButton.addActionListener(view.getMenuController());
 		dialog.addWindowListener(view.getMenuController()); 
 
 	}
