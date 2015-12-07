@@ -27,7 +27,9 @@ public class Balloon implements MoveVertical{
 	}
 	
 	public void gravity(){
-		raise(helium);
+		if (yPos > 0) {
+			raise(helium);
+		}
 	}
 
 	public int getxPos() {
@@ -67,7 +69,7 @@ public class Balloon implements MoveVertical{
 	}
 
 	public void increaseHelium() {
-		helium -= .2;
+		helium -= .5;
 	}
 	
 }

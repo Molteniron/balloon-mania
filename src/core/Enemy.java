@@ -17,7 +17,7 @@ public class Enemy extends Antagonist implements MoveVertical{
 	 * move in sin wave to the left
 	 */
 	public void move(){
-		raise(Math.asin(Math.sin((xSpawn-getXPos()) / 20))*moveRadius / 8);
+		raise(Math.asin(Math.sin((xSpawn-getXPos()) / 50))*moveRadius / 4);
 		slide(getHorizontalSpeed());
 	}
 	

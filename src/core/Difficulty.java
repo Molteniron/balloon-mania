@@ -22,8 +22,7 @@ public class Difficulty {
 	}
 	
 	public void setDifficulty(int newDifficulty){
-		if(newDifficulty >= 0 && newDifficulty <= 5)
-			difficultyNum = newDifficulty;
+		difficultyNum = newDifficulty % 6;
 		setSpeed();
 		setFreq();
 		setTime();
@@ -41,7 +40,7 @@ public class Difficulty {
 		break;
 		case 4: speed = -3.5 * 2;
 		break;
-		case 5: speed = -5 * 2;
+		case 5: speed = -4 * 2;
 		break;
 		}
 	}
@@ -67,15 +66,15 @@ public class Difficulty {
 		switch (difficultyNum){
 		case 0: time = 5000;
 		break;
-		case 1: time = 4600;
+		case 1: time = 4000;
 		break;
-		case 2: time = 3800;
+		case 2: time = 3000;
 		break;
-		case 3: time = 3200;
+		case 3: time = 2000;
 		break;
-		case 4: time = 2600;
+		case 4: time = 1500;
 		break;
-		case 5: time = 2000;
+		case 5: time = 100;
 		break;
 		}
 	}
