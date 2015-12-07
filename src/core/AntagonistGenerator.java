@@ -31,13 +31,13 @@ public class AntagonistGenerator {
 	 * based on difficulty's attributes.
 	 */
 	public void generateAntagonist(){
-		double xPos = panelWidth + 50; //set to just off screen
+		double xPos = panelWidth + 100; //set to just off screen
 		double speed = difficulty.getSpeed();
 		double freq = difficulty.getFreq();
 		double h, yPos;
 		Antagonist antagonist;
 		if (rand.nextDouble() < freq) {
-			antagonist = new Enemy(speed, xPos, rand.nextDouble()*(maxHeight + minWindow) - minWindow / 2, antagonistWidth, panelHeight / 5);
+			antagonist = new Enemy(speed, xPos + rand.nextInt(200) - 100, rand.nextDouble()*(panelHeight / 2) - 100, antagonistWidth, panelHeight / 8);
 		} else {
 			do {
 				h = rand.nextDouble() * (maxHeight - panelHeight / 4) + panelHeight / 4;

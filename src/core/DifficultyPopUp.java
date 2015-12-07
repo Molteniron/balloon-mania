@@ -15,7 +15,6 @@ import javax.swing.JSlider;
 public class DifficultyPopUp extends JFrame{
 	private Model model;
 	private View view;
-	private Difficulty difficulty;
 	private boolean firstPaint;
 	private JPanel popPanel;
 	private JDialog dialog;
@@ -23,7 +22,6 @@ public class DifficultyPopUp extends JFrame{
 	public DifficultyPopUp(Model model, View view) {
 		this.model = model;
 		this.view = view;
-		difficulty = model.getDifficulty();
 		popPanel = new JPanel();
 		firstPaint = true;
 
@@ -34,7 +32,7 @@ public class DifficultyPopUp extends JFrame{
 		dialog.setBackground(Color.black);
 		dialog.setLayout(new GridLayout(7,1));
 		
-		dialog.add(new JLabel("Diffuclty"));
+		dialog.add(new JLabel("Difficulty"));
 		JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 1);
 		slider.setName("Difficulty");
 		dialog.add(slider);
