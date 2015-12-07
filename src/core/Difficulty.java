@@ -65,17 +65,17 @@ public class Difficulty {
 
 	private void setTime(){
 		switch (difficultyNum){
-		case 0: time = 3000;
+		case 0: time = 5000;
 		break;
-		case 1: time = 2800;
+		case 1: time = 4600;
 		break;
-		case 2: time = 2500;
+		case 2: time = 3800;
 		break;
-		case 3: time = 2200;
+		case 3: time = 3200;
 		break;
-		case 4: time = 1800;
+		case 4: time = 2600;
 		break;
-		case 5: time = 1500;
+		case 5: time = 2000;
 		break;
 		}
 	}
