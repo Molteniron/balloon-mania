@@ -17,7 +17,7 @@ public class RepaintController implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		if(model.getPause() != true){
 			model.getAntagGen().moveAntagonists();
-
+			model.getBalloon().gravity(1);
 		}
 		view.repaint();
 		

@@ -135,7 +135,7 @@ public class View extends JFrame{
 	}
 	public void registerListener(Controller controller, menuController controller1) {
 		// TODO Auto-generated method stub
-		paintPanel.addKeyListener(controller1);
+		paintPanel.addKeyListener(controller);
 		
 		menuController = controller1;
 		Component [] components = menu.getMenuComponents();

@@ -10,6 +10,7 @@ public class Model {
 	private double score;
 	private boolean pause, themeChanged;
 	private double volume;
+	private Balloon balloon;
 	public Model(){
 		theme = new Theme();
 		setScore(0);
@@ -18,6 +19,7 @@ public class Model {
 		period = 5;
 		difficulty = new Difficulty();
 		pause = true;
+		setBalloon(new Balloon());
 		setThemeChanged(true);
 	}
 	
@@ -89,5 +91,13 @@ public class Model {
 
 	public void setThemeChanged(boolean themeChanged) {
 		this.themeChanged = themeChanged;
+	}
+
+	public Balloon getBalloon() {
+		return balloon;
+	}
+
+	public void setBalloon(Balloon balloon) {
+		this.balloon = balloon;
 	}
 }

@@ -32,10 +32,12 @@ public class PaintPanel extends JPanel{
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		System.out.println("paintPanel");
+		//System.out.println("paintPanel");
 		g.drawImage(model.getTheme().getImage(), 0, 0, null);
 		//this is a fake comment so I can commit again.
-		g.drawImage(model.getTheme().getBalloonImg(), 100, 100, null);
+		//g.drawImage(model.getTheme().getBalloonImg(), 100, 100, null);
+		Balloon balloon = model.getBalloon();
+		g.drawRect(balloon.getxPos(), balloon.getyPos(), balloon.getWidth(), balloon.getHeight());
 		if(firstPrint == true){
 			firstPrint = false;
 			view.drawDiffPop();
