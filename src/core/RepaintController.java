@@ -21,6 +21,7 @@ public class RepaintController implements ActionListener{
 		if(model.getPause() != true){
 			model.getAntagGen().moveAntagonists();
 			model.getBalloon().gravity();
+			model.checkForCollision();
 		}
 		view.repaint();
 		

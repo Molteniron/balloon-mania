@@ -113,4 +113,17 @@ public class Model {
 	public void setGameOver(boolean gameOver) {
 		this.gameOver = gameOver;
 	}
+	
+	public void checkForCollision(){
+		for (Antagonist a : getAntagGen().getAntList()){
+			if (a.getXPos() < balloon.getxPos() + balloon.getWidth() && a.getXPos() + a.getWidth() > balloon.getxPos()){
+				//Vertically Aligned
+				if (a.getYPos() < balloon.getyPos() + balloon.getHeight() && a.getYPos() + a.getHeight() > balloon.getyPos()){
+					//Horizontally aligned
+					setGameOver(true);
+				}
+			}
+		}
+	}
+
 }

@@ -21,8 +21,9 @@ public class PaintAntagonists extends JPanel{
 		//g.drawRect(100, 100, 100, 100);
 		if(model.isGameOver() == false){
 			for (Antagonist a : model.getAntagGen().getAntList()) {
-				g.drawRect((int) a.getXPos(), (int) a.getYPos() , (int) a.getWidth(), (int) a.getHeight());
-				System.out.println("Drawing an " + a.type + " at " + (a.getXPos()) + ", " + (a.getYPos()));
+				g.setColor(model.getTheme().getObstacleColor1());
+				g.fillRect((int) a.getXPos(), (int) a.getYPos() , (int) a.getWidth(), (int) a.getHeight());
+				//System.out.println("Drawing an " + a.type + " at " + (a.getXPos()) + ", " + (a.getYPos()));
 			}
 		}
 	}
