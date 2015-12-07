@@ -60,15 +60,18 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 			model.getDifficulty().setDifficulty(source.getValue());
 			System.out.printf("Difficulty = ");
 		} else if(source.getName() == "Volume" && model.getVolume() != source.getValue()){
+			
 				view.getMediaPlayer().setVolume(  (double)source.getValue() / 10.0  );
 				model.setVolume(source.getValue());
-				System.out.printf("Volume = %f", view.getMediaPlayer().getVolume());
+				//System.out.printf("Volume = %f", view.getMediaPlayer().getVolume());
+				
 		} else if(source.getName() == "Theme" && model.getTheme().getThemeInt() != source.getValue()){
+				
 				model.setTheme(source.getValue());
 				model.setThemeChanged(true);
 				//System.out.printf("Theme = ");
 		}
-		System.out.printf("%d\n", source.getValue());
+		//System.out.printf("%d\n", source.getValue());
 	}
 	public void windowClosed(WindowEvent e){
 		model.setPause(false);
@@ -86,6 +89,7 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 	public void windowClosing(WindowEvent arg0) {
 		// TODO Auto-generated method stub
 		model.setPause(false);
+		model.setGameOver(false);
 		System.out.println("closing");
 	}
 

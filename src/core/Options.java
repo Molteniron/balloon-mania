@@ -16,22 +16,18 @@ public class Options extends JFrame {
 	private Difficulty difficulty;
 	private Model model;
 	private View view;
-	//private PaintPanel optionsPanel;
 	private JPanel optionsPanel;
 	private boolean firstPaint;
 	public Options(Model model, View view){
 		theme = new Theme();
 		this.model = model;
 		this.view = view;
-		difficulty = model.getDifficulty();
-		//optionsPanel = new PaintPanel(model, view);
 		optionsPanel = new JPanel();
 		firstPaint = true;
 
 	}
 
 	public void drawOptions(){
-		//optionsPanel.repaint();
 		
 		if(firstPaint == true){
 			optionsPanel.setEnabled(true);
@@ -39,11 +35,6 @@ public class Options extends JFrame {
 			optionsPanel.setBackground(Color.white);
 			optionsPanel.requestFocus();
 			optionsPanel.setLayout(new GridLayout(3,1));
-		
-			/*optionsPanel.add(new JLabel("Difficulty"));
-			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 5, 1);
-			slider.setName("Difficulty");
-			optionsPanel.add(slider);*/
 		
 			optionsPanel.add(new JLabel("Volume"));
 			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
@@ -60,7 +51,6 @@ public class Options extends JFrame {
 				if( component instanceof JSlider ) {
 					JSlider slide = (JSlider) component;
 					view.setMenuController(slide);
-					//slide.addChangeListener(view.getMenuController());
 				}
 			}
 			
@@ -76,8 +66,6 @@ public class Options extends JFrame {
 		this.setVisible(true);
 	}
 	public void closeOptions(){
-		//optionsPanel.setEnabled(false);
-		//remove(optionsPanel);
 		this.setVisible(false);
 		
 	}

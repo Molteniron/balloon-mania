@@ -33,54 +33,23 @@ public class PaintPanel extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		//System.out.println("paintPanel");
+		
+		//drawBackground
 		g.drawImage(model.getTheme().getImage(), 0, 0, null);
-		//this is a fake comment so I can commit again.
 		//g.drawImage(model.getTheme().getBalloonImg(), 100, 100, null);
+		//drawBalloon
 		Balloon balloon = model.getBalloon();
 		if(balloon != null)
 			g.drawRect(balloon.getxPos(), balloon.getyPos(), balloon.getWidth(), balloon.getHeight());
-		if(model.isGameOver() == false){
-			
-		}
 		if(firstPrint == true || model.isGameOver() == true){
 			firstPrint = false;
-			view.drawDiffPop();
-			/*
-			System.out.println("first print");
-			JLabel background = new JLabel();
-			background.setName("background");
-			background.setIcon(model.getTheme().getImg());
-			this.add(background, BorderLayout.SOUTH);
-			*/
-			
+			view.drawDiffPop();		
 		} else{
-			if(model.isThemeChanged() == true){
-				/*Component [] components = this.getComponents();
-				for( Component component : components) {
-					if(component.getName() == "background"){
-						this.remove(component);
-						
-						//JLayeredPane layer = view.getLayeredPane();
-						//layer.remove(layer.getComponent(0));
-						
-						this.revalidate();
-						//layer.revalidate();
-					} }
-						JLabel background = new JLabel();
-						background.setName("background");
-						background.setIcon(model.getTheme().getImg());
-					//	this.add(background, BorderLayout.SOUTH);
-						//layer.add(background, 0);
-						model.setThemeChanged(false);
-					//}	
-				//} */
-			}//end background code
 			if(view.getMediaPlayer().getCurrentTime().equals(Duration.millis(183000.0)) ){
 				System.out.println("trying to replay");
 				view.getMediaPlayer().seek(Duration.ZERO);
 			}
 		}//end else
-		
 		view.getPaintAg().paintComponent(g);
 	}
 	
