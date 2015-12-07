@@ -15,9 +15,12 @@ public class RepaintController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		if(model.isGameOver() == true){
+			model.gameReset();
+		}
 		if(model.getPause() != true){
 			model.getAntagGen().moveAntagonists();
-			model.getBalloon().gravity(1);
+			model.getBalloon().gravity();
 		}
 		view.repaint();
 		

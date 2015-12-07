@@ -46,7 +46,10 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 			view.closeOptions();
 			model.setPause(false);
 		} else if(command.equals("Play")){
+			System.out.println("play now");
+			model.gameReset();
 			model.setPause(false);
+			model.setGameOver(false);
 			view.closeDiffPop();
 			
 		}
@@ -69,6 +72,7 @@ public class menuController extends KeyAdapter implements ActionListener, Change
 	}
 	public void windowClosed(WindowEvent e){
 		model.setPause(false);
+		model.setGameOver(false);
 		System.out.println("closed");
 	}
 

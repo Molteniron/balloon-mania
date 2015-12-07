@@ -32,6 +32,7 @@ public class Options extends JFrame {
 
 	public void drawOptions(){
 		//optionsPanel.repaint();
+		
 		if(firstPaint == true){
 			optionsPanel.setEnabled(true);
 			add(optionsPanel);

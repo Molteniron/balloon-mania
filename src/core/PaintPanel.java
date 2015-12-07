@@ -37,8 +37,12 @@ public class PaintPanel extends JPanel{
 		//this is a fake comment so I can commit again.
 		//g.drawImage(model.getTheme().getBalloonImg(), 100, 100, null);
 		Balloon balloon = model.getBalloon();
-		g.drawRect(balloon.getxPos(), balloon.getyPos(), balloon.getWidth(), balloon.getHeight());
-		if(firstPrint == true){
+		if(balloon != null)
+			g.drawRect(balloon.getxPos(), balloon.getyPos(), balloon.getWidth(), balloon.getHeight());
+		if(model.isGameOver() == false){
+			
+		}
+		if(firstPrint == true || model.isGameOver() == true){
 			firstPrint = false;
 			view.drawDiffPop();
 			/*

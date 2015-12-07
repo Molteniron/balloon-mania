@@ -19,11 +19,15 @@ public class Model {
 		period = 5;
 		difficulty = new Difficulty();
 		pause = true;
-		setBalloon(new Balloon());
-		setThemeChanged(true);
-		setGameOver(false);
+		//setBalloon(new Balloon());
+		setThemeChanged(false);
+		setGameOver(true);
 	}
-	
+	public void gameReset(){
+		pause = true;
+		setBalloon(new Balloon(difficulty));
+		ag = new AntagonistGenerator( difficulty, panelWidth, panelHeight);
+	}
 	public AntagonistGenerator getAntagGen(){
 		return ag;
 	}
@@ -54,7 +58,7 @@ public class Model {
 	public void setSize(int width, int height) {
 		panelWidth = width;
 		panelHeight = height;
-		ag = new AntagonistGenerator( difficulty, panelWidth, panelHeight);
+		//ag = new AntagonistGenerator( difficulty, panelWidth, panelHeight);
 	}
 	public double getPanelWidth(){
 		return panelWidth;

@@ -32,8 +32,12 @@ public class Controller implements KeyListener, ActionListener{
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		if(arg0.getKeyChar() == 'h')
+			model.getBalloon().increaseHelium();
 		if(arg0.getKeyChar() == ' ')
-			model.getBalloon().raise(10);
+			model.getBalloon().move();
+		if(arg0.getKeyChar() == 'q')
+			model.setGameOver(true);
 			
 	}
 

@@ -2,11 +2,16 @@ package core;
 
 public class Balloon implements MoveVertical{
 		private int xPos, yPos, width, height;
-	public Balloon() {
+		private Difficulty difficulty;
+		private double helium, pullStrength;
+	public Balloon(Difficulty difficulty) {
 		setxPos(100);
-		setyPos(100);
+		setyPos(400);
 		setWidth(50);
 		setHeight(50);
+		this.difficulty = difficulty;
+		helium = difficulty.getSpeed();
+		pullStrength = difficulty.getSpeed();
 	}
 
 	@Override
@@ -17,12 +22,12 @@ public class Balloon implements MoveVertical{
 
 	@Override
 	public void move() {
-		raise(10);
+		raise(pullStrength * ( (-15) +  helium) );
 		
 	}
 	
-	public void gravity(double val){
-		raise(-val);
+	public void gravity(){
+		raise(helium);
 	}
 
 	public int getxPos() {
@@ -55,6 +60,14 @@ public class Balloon implements MoveVertical{
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	public double getHelium() {
+		return helium;
+	}
+
+	public void increaseHelium() {
+		helium -= .2;
 	}
 	
 }

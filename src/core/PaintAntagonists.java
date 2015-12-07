@@ -19,9 +19,11 @@ public class PaintAntagonists extends JPanel{
 		//view.setContentPane(this);
 		//System.out.println("paintAg");
 		//g.drawRect(100, 100, 100, 100);
-		for (Antagonist a : model.getAntagGen().getAntList()) {
-			g.drawRect((int) a.getXPos(), (int) a.getYPos() , (int) a.getWidth(), (int) a.getHeight());
-			System.out.println("Drawing an " + a.type + " at " + (a.getXPos()) + ", " + (a.getYPos()));
+		if(model.isGameOver() == false){
+			for (Antagonist a : model.getAntagGen().getAntList()) {
+				g.drawRect((int) a.getXPos(), (int) a.getYPos() , (int) a.getWidth(), (int) a.getHeight());
+				System.out.println("Drawing an " + a.type + " at " + (a.getXPos()) + ", " + (a.getYPos()));
+			}
 		}
 	}
 
