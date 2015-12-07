@@ -33,12 +33,8 @@ public class PaintPanel extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		System.out.println("paintPanel");
-		//System.out.println(model.getPause());
 		g.drawImage(model.getTheme().getImage(), 0, 0, null);
-		/*for (Antagonist a : model.getAntagGen().getAntList()) {
-			g.drawRect((int) a.getXPos() - 100, (int) a.getYPos() - 100, (int) a.getWidth(), (int) a.getHeight());
-			System.out.println("Drawing an Antagonist at " + (a.getXPos() - 100) + ", " + (a.getYPos() - 100));
-		}*/
+		
 		if(firstPrint == true){
 			/*
 			System.out.println("first print");
@@ -49,8 +45,8 @@ public class PaintPanel extends JPanel{
 			*/
 			firstPrint = false;
 		} else{
-			/*if(model.isThemeChanged() == true){
-				Component [] components = this.getComponents();
+			if(model.isThemeChanged() == true){
+				/*Component [] components = this.getComponents();
 				for( Component component : components) {
 					if(component.getName() == "background"){
 						this.remove(component);
@@ -68,8 +64,8 @@ public class PaintPanel extends JPanel{
 						//layer.add(background, 0);
 						model.setThemeChanged(false);
 					//}	
-				//} 
-			}//end background code*/
+				//} */
+			}//end background code
 			if(view.getMediaPlayer().getCurrentTime().equals(Duration.millis(183000.0)) ){
 				System.out.println("trying to replay");
 				view.getMediaPlayer().seek(Duration.ZERO);

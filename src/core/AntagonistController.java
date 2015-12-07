@@ -14,7 +14,8 @@ public class AntagonistController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		model.getAntagGen().generateAntagonist();
+		if(model.getPause() != true)
+			model.getAntagGen().generateAntagonist();
 
 	}
 
