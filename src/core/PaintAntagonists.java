@@ -21,7 +21,7 @@ public class PaintAntagonists extends JPanel{
 		g.drawRect(100, 100, 100, 100);
 		for (Antagonist a : model.getAntagGen().getAntList()) {
 			g.drawRect((int) a.getXPos() - 100, (int) a.getYPos() - 100, (int) a.getWidth(), (int) a.getHeight());
-			System.out.println("Drawing an Antagonist at " + (a.getXPos() - 100) + ", " + (a.getYPos() - 100));
+			System.out.println("Drawing an " + a.type + " at " + (a.getXPos() - 100) + ", " + (a.getYPos() - 100));
 		}
 	}
 

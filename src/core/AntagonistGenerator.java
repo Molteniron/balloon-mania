@@ -28,8 +28,7 @@ public class AntagonistGenerator {
 	/**
 	 * generate an Antagonist and add it to the Arraylist.
 	 * Antagonists will be randomly selected as Enemy or Obstacle 
-	 * based on Difficulty (0-10). Difficulty also determines Antagonist
-	 * speed.
+	 * based on difficulty's attributes.
 	 */
 	public void generateAntagonist(){
 		double xPos = panelWidth + 50; //set to just off screen
@@ -37,7 +36,7 @@ public class AntagonistGenerator {
 		double freq = difficulty.getFreq();
 		double h, yPos;
 		Antagonist antagonist;
-		if (rand.nextInt(100) < freq) {
+		if (rand.nextDouble() < freq) {
 			antagonist = new Enemy(speed, xPos, rand.nextDouble()*panelHeight, antagonistWidth, panelHeight / 4);
 		} else {
 			do {

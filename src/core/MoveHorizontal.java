@@ -6,6 +6,6 @@ public interface MoveHorizontal {
  * @param val distance to slide
  * @return destination coordinate
  */
-	public double slide(double val);
+	public void slide(double val);
 	public void move();
 }

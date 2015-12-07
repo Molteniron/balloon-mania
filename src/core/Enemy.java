@@ -1,9 +1,6 @@
 package core;
 
 public class Enemy extends Antagonist implements MoveVertical{
-	private double horizontalSpeed;
-	private double xPos;
-	private double yPos;
 	private double xSpawn;
 	private double ySpawn;
 	private double moveRadius;
@@ -13,19 +10,19 @@ public class Enemy extends Antagonist implements MoveVertical{
 		this.ySpawn = ySpawn;
 		this.xSpawn = xSpawn;
 		this.moveRadius = moveRadius;
+		type = "Enemy";
 	}
 	
 	/**
 	 * move in sin wave to the left
 	 */
 	public void move(){
-		raise(Math.atan(Math.tan(yPos-ySpawn/xPos-xSpawn))*horizontalSpeed*moveRadius);
-		slide(horizontalSpeed);
+		raise(Math.atan(Math.tan((xSpawn-getXPos()) / 20))*moveRadius / 8);
+		slide(getHorizontalSpeed());
 	}
 	
-	public double raise(double val){
-		yPos += val;
-		return yPos;
+	public void raise(double val){
+		setYPos(getYPos() + val);
 	}
 	
 

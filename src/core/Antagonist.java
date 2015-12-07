@@ -5,21 +5,22 @@ public class Antagonist implements MoveHorizontal{
 	private double yPos;
 	private double xPos;
 	private double width;
+	public String type;
 	
 	public Antagonist(double horizontalSpeed, double xPos, double yPos, double width){
 		this.horizontalSpeed = horizontalSpeed;
 		this.xPos = xPos;
 		this.yPos = yPos;
 		this.width = width;
+		type = "";
 	}
 	
 	public void move (){
 		slide(horizontalSpeed);
 	}
 
-	public double slide (double val){
+	public void slide (double val){
 		xPos += val;
-		return xPos;
 	}
 	
 	public double getHorizontalSpeed(){
@@ -32,6 +33,14 @@ public class Antagonist implements MoveHorizontal{
 	
 	public double getYPos(){
 		return yPos;
+	}
+
+	public void setXPos(double val){
+		xPos = val;
+	}
+	
+	public void setYPos(double val){
+		yPos = val;
 	}
 	
 	public double getWidth(){

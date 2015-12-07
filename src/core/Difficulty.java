@@ -31,34 +31,52 @@ public class Difficulty {
 	
 	private void setSpeed(){
 		switch (difficultyNum){
-		case 0: speed = -.5 * 1;
-		case 1: speed = -1 * 1;
-		case 2: speed = -1.5 * 1;
-		case 3: speed = -2.5 * 1;
-		case 4: speed = -3.5 * 1;
-		case 5: speed = -5 * 1;
+		case 0: speed = -.5 * 2;
+		break;
+		case 1: speed = -1 * 2;
+		break;
+		case 2: speed = -1.5 * 2;
+		break;
+		case 3: speed = -2.5 * 2;
+		break;
+		case 4: speed = -3.5 * 2;
+		break;
+		case 5: speed = -5 * 2;
+		break;
 		}
 	}
 	
 	private void setFreq(){
 		switch (difficultyNum){
 		case 0: freq = 0;
-		case 1: freq = .1;
+		break;
+		case 1: freq = 1;
+		break;
 		case 2: freq = .2;
+		break;
 		case 3: freq = .4;
+		break;
 		case 4: freq = .75;
+		break;
 		case 5: freq = 1;
+		break;
 		}
 	}
 
 	private void setTime(){
 		switch (difficultyNum){
 		case 0: time = 3000;
+		break;
 		case 1: time = 2800;
+		break;
 		case 2: time = 2500;
+		break;
 		case 3: time = 2200;
+		break;
 		case 4: time = 1800;
+		break;
 		case 5: time = 1500;
+		break;
 		}
 	}
 	
