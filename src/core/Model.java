@@ -127,7 +127,7 @@ public class Model {
 		if (balloon.getyPos() == 0 ) {
 			setGameOver(true);
 		}
-		if (balloon.getyPos() + balloon.getHeight() > panelHeight) {
+		if (balloon.getyPos() + balloon.getHeight() + 60 > panelHeight) {
 			setGameOver(true);
 		}
 	}
