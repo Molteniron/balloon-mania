@@ -23,8 +23,10 @@ public class Theme {
 			Sky = ImageIO.read(new File("16BitSkyCropped.jpg"));
 			Cloud = ImageIO.read(new File("CloudCropped.jpg"));
 			MorningSky = ImageIO.read(new File("MorningSkyCropped.jpg"));
-			greenBalloon = ImageIO.read(new File("greenBalloon.jpg"));
-		}catch (IOException e){ }
+			greenBalloon = ImageIO.read(new File("greenBalloon.png"));
+		}catch (IOException e){ 
+			System.out.println("IOException caught: " + e);
+			}
 		changeTheme(1);
 	}
 	public void changeTheme(int themeInt){

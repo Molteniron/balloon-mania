@@ -18,7 +18,7 @@ public class AntagonistGenerator {
 		this.panelHeight = panelHeight;
 		minWindow = panelHeight / 3;
 		maxHeight = panelHeight - minWindow;
-		antagonistWidth = panelHeight / 12;
+		antagonistWidth = 50;
 		rand = new Random();
 	}
 	public ArrayList<Antagonist> getAntList(){
