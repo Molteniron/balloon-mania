@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 public class Theme {
 	private Color backColor1, backColor2, balloonColor1, enemyColor1, obstacleColor1;
 	private int themeInt;
-	private BufferedImage Sky, Cloud, MorningSky, greenBalloon, currentImage, currBalloon;
+	private BufferedImage Sky, Cloud, MorningSky, greenBalloon, pinkBalloon, blueBalloon, currentImage, currBalloon;
 	public Theme(){
 		themeInt = 1;
 		setBackColor1(Color.green);
@@ -24,6 +24,8 @@ public class Theme {
 			Cloud = ImageIO.read(new File("CloudCropped.jpg"));
 			MorningSky = ImageIO.read(new File("MorningSkyCropped.jpg"));
 			greenBalloon = ImageIO.read(new File("greenBalloon.png"));
+			pinkBalloon = ImageIO.read(new File("pinkBalloon.png"));
+			blueBalloon = ImageIO.read(new File("blueBalloon.png"));
 		}catch (IOException e){ 
 			System.out.println("IOException caught: " + e);
 			}
@@ -33,11 +35,13 @@ public class Theme {
 		this.themeInt = themeInt;
 		if(themeInt == 1){
 			currentImage = Sky;
-			currBalloon = greenBalloon;
+			currBalloon = blueBalloon;
 		}else if(themeInt == 2){
 			currentImage = Cloud;
+			currBalloon = pinkBalloon;
 		}else if(themeInt == 3){
 			currentImage = MorningSky;
+			currBalloon = greenBalloon;
 		}
 		
 	}
