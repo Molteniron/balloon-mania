@@ -21,7 +21,7 @@ public class BalloonMania {
 		view.setVisible(true);
 		
 		AntagonistController antagonistController = new AntagonistController(model, view);
-		new Timer(model.getDifficulty().getTime(), antagonistController).start();
+		new Timer(4000, antagonistController).start();
 		
 		new Timer(25, repaintController).start();
 		

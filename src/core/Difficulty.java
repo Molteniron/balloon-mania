@@ -74,7 +74,7 @@ public class Difficulty {
 		break;
 		case 4: time = 1500;
 		break;
-		case 5: time = 100;
+		case 5: time = 1000;
 		break;
 		}
 	}
