@@ -40,14 +40,14 @@ public class DifficultyPopUp extends JFrame{
 		view.setMenuController(slider);
 		
 		dialog.add(new JLabel("Volume"));
-		slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
+		slider = new JSlider(JSlider.HORIZONTAL, 0, 10, (int)model.getVolume());
 		slider.setName("Volume");
 		dialog.add(slider);	
 		//slider.addChangeListener(view.getMenuController());
 		view.setMenuController(slider);
 		
 		dialog.add(new JLabel("Theme"));
-		slider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
+		slider = new JSlider(JSlider.HORIZONTAL, 1, 3, model.getTheme().getThemeInt());
 		slider.setName("Theme");
 		dialog.add(slider);
 		//slider.addChangeListener(view.getMenuController());

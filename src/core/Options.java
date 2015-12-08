@@ -37,12 +37,12 @@ public class Options extends JFrame {
 			optionsPanel.setLayout(new GridLayout(3,1));
 		
 			optionsPanel.add(new JLabel("Volume"));
-			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
+			JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 10, (int)model.getVolume());
 			slider.setName("Volume");
 			optionsPanel.add(slider);
 		
 			optionsPanel.add(new JLabel("Theme"));
-			slider = new JSlider(JSlider.HORIZONTAL, 1 ,3, 1);
+			slider = new JSlider(JSlider.HORIZONTAL, 1 ,3, model.getTheme().getThemeInt());
 			slider.setName("Theme");
 			optionsPanel.add(slider);
 		
